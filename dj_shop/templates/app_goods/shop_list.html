@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+    {% trans 'Shops' %}
+{% endblock %}
+
+{% block body %}
+    {% if shops %}
+        {% for shop in shops %}
+            <a class="core_link_item shop-container" href="{% url 'app_goods:shop' pk=shop.pk %}">
+                <h2 class="shop__list__title">{{ shop.title }}</h2>
+                <p class="shop-address">{% trans 'Address' %}: {{ shop.address }}</p>
+            </a>
+        {% endfor %}
+    {% else %}
+        <h2>{% trans 'No shops yet' %}</h2>
+    {% endif %}
+
+{% endblock %}

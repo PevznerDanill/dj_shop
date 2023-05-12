@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+    {% trans 'Orders' %}
+{% endblock %}
+
+{% block body %}
+    <h1>{% trans 'Orders' %}</h1>
+    <ol>
+        {% for order in orders %}
+            <a href="{% url 'app_goods:order_detail' pk=order.pk %}">
+                <li>
+                    <p>{% trans 'Order to' %} {{ order.delivery_address }}</p>
+                    <p>{% trans 'Created at' %} {{ order.created_at }}</p>
+                    <p>{% trans 'Products in order' %}: {{ order.total_items }}</p>
+                </li>
+            </a>
+
+        {% endfor %}
+
+    </ol>
+{% endblock %}

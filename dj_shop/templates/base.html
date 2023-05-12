@@ -1,0 +1,97 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/htmx.org@1.8.6" integrity="sha384-Bj8qm/6B+71E6FQSySofJOUjA/gq330vEqjFx9LakWybUySyI1IQHwPtbTU7bNwx" crossorigin="anonymous"></script>
+
+    {% block scripts %}
+
+    {% endblock %}
+
+    <title>
+        {% block title %}
+
+        {% endblock %}
+    </title>
+</head>
+<body>
+    <div class="container">
+        {% block header %}
+            <header class="main__header flex">
+                <a class="logo" href="{% url 'app_main:index' %}">
+                    YOUR SHOPS
+                </a>
+                <ul class="header__list flex list-reset">
+                        <li class="header__item core_link_item">
+                            <a class="header__link" href="{% url 'app_goods:shop_list' %}">
+                                {% trans 'Shops' %}
+                            </a>
+                        </li>
+                    {% if request.user.is_authenticated %}
+                        <li class="header__item core_link_item profile__item">
+                            <a class="header__link" href="{% url 'app_users:profile' pk=profile.pk %}">
+                                {% trans 'Personal account' %}
+                            </a>
+                            <ul class="list-reset profile__list">
+                                {% if not 'status-info' in request.path %}
+                                    <li class="profile__list__item header__item core_link_item">
+                                        <a class="header__link" href="{% url 'app_users:status_info' pk=profile.pk %}">
+                                            {{ profile.status_str }}
+                                        </a>
+                                    </li>
+                                {% endif %}
+
+                                    <li class="profile__list__item header__item core_link_item">
+                                        <a class="header__link" href="{% url 'app_users:add_balance' pk=profile.pk %}">
+                                            {% trans 'Balance' %}: ${{ profile.balance }}
+                                        </a>
+                                    </li>
+                                    <li class="profile__list__item header__item core_link_item">
+                                        <a class="header__link" href="{% url 'app_users:logout' %}">
+                                            {% trans 'Log out as' %} {{ request.user.username }}
+                                        </a>
+                                    </li>
+                                    {% include 'lang_switch.html' %}
+                            </ul>
+                        </li>
+                            {% if not 'basket' in request.path %}
+                            <li class="header__item core_link_item item__basket">
+                                <a class="header__link" href="{% url 'app_basket:basket_detail' %}">
+                                    {% trans 'Basket' %} {% if basket|length > 0 %}| {{ basket|length }}{% endif %}
+                                </a>
+                            </li>
+                            {% endif %}
+                    {% else %}
+                        <li class="header__item core_link_item">
+                            <a class="header__link" href="{% url 'app_users:login' %}">
+                                {% trans 'Login' %}
+                            </a>
+                        </li>
+
+                        <li class="header__item core_link_item">
+                            <a class="header__link" href="{% url 'app_users:register' %}">
+                                {% trans 'Sign up' %}
+                            </a>
+                        </li>
+
+
+                    {% endif %}
+
+                </ul>
+            </header>
+
+        {% endblock %}
+
+        {% block body %}
+
+        {% endblock %}
+    </div>
+</body>
+</html>

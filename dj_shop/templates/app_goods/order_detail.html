@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+    {% trans 'Order' %} {{ order.pk }}
+{% endblock %}
+
+{% block body %}
+    <h1>{% trans 'Order' %} {{ order.pk }}</h1>
+    <br>
+
+    <div>
+        <h2>{% trans 'Order details' %}</h2>
+        <br>
+        <p>{% trans 'Deliver to' %}: {{ order.delivery_address }}</p>
+        <p>{% trans 'Created at' %}: {{ order.created_at }}</p>
+        <p>{% trans 'Ordered products' %}:</p>
+        <ul>
+        {% with order.items.all as items %}
+
+            {% for item in items %}
+                <li>
+                    <p>{{ item }}</p>
+                    <p>{% trans 'Price' %}: ${{ item.product.price }}</p>
+                    <p>{% trans 'Shop' %}: {{ item.shop }}</p>
+                    <p>{% trans 'Amount' %}: {{ item.ordered_quantity }}</p>
+                </li>
+            {% endfor %}
+        {% endwith %}
+        </ul>
+        <p>{% trans 'Total price' %}: ${{ total_price }}</p>
+        {% if order.discount %}
+            <p>{% trans 'The order was made with the discount of' %} {{ order.discount }}%</p>
+        {% endif %}
+    </div>
+    <br>
+    <p>
+        <a class="btn add_balance_btn" href="{% url 'app_goods:order_list' pk=profile.pk %}">
+            {% trans 'Check all orders' %}
+        </a>
+    </p>
+    <br>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+    {% trans 'Your balance' %}
+{% endblock %}
+
+{% block body %}
+
+        <h1>{% trans 'Top up your balance' %}</h1>
+        <div>
+            <h2>{% trans 'Your current balance' %}: {{ profile.balance }}</h2>
+            {% if messages %}
+                {% for message in messages %}
+                    {% if forloop.first %}
+                        <h3>{{ message }}</h3>
+                    {% endif %}
+                {% endfor %}
+
+            {% endif %}
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn add_balance_btn" type="submit">{% trans 'Add' %}</button>
+        </form>
+
+
+
+{% endblock %}

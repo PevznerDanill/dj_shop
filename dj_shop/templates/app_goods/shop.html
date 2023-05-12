@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+    {% trans 'Shop' %} {{ shop.pk }}
+{% endblock %}
+
+{% block body %}
+    <h1 class="shop__title">{{ shop.title }}</h1>
+    {% if messages %}
+        {% for message in messages %}
+            {% if forloop.first %}
+                <h3>{{ message }}</h3>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <ul class="list__products__box list-reset">
+        {% for item in items %}
+            {% if item.available %}
+                <li class="products__item flex">
+                    <p class="product__title item__para">{{ item.product.title }}</p>
+                    <img class="product__image" src="/{{ item.product.image }}" alt="">
+                    <p class="product__price item__para">${{ item.product.price }}</p>
+                    <p class="product__amount item__para">
+                        {% trans 'Amount' %}: {{ item.quantity }}
+                    </p>
+                    {% if profile %}
+                        <form method="post" class="add_form">
+                            {% csrf_token %}
+                            <input type="hidden" name="basket_item" value="{{ item.pk }}">
+                            <button class="add_form_btn btn" type="submit">{% trans 'Add to the basket' %}</button>
+                        </form>
+                    {% endif %}
+
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+{% endblock %}

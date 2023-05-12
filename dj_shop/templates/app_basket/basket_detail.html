@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block scripts %}
+    <script>
+        function hideButton(){
+            document.getElementById('order_btn').style.display= 'none';
+        }
+</script>
+{% endblock %}
+
+{% block title %}
+    {% trans 'Basket' %}
+{% endblock %}
+
+{% block body %}
+    <h1>{% trans 'Your basket' %}</h1>
+
+    <h2>{% trans 'Items in the basket' %}</h2>
+
+    <br>
+    {% if basket|length > 0 %}
+
+        {% for item in basket %}
+            <form method="post" class="update-form" id="update-form-{{ forloop.counter }}">
+                {% csrf_token %}
+                <input type="hidden" name="item_id" value="{{ item.item.id }}">
+                <input type="hidden" name="anchor" value="#item_{{ forloop.counter }}">
+                <p class="basket_form_para" id="item_{{ forloop.counter }}">
+                    {{ forloop.counter }}. {{ item.item }} {% trans 'from' %} {{ item.item.shop }}
+                </p>
+                <p class="basket_form_para">{% trans 'Amount' %}:
+                    <button class="btn amount__btn" type="submit" name="action" value="decrease">-</button>
+                    <span class="product-amount">{{ item.amount }}</span>
+                    <button class="btn amount__btn" type="submit" name="action" value="increase">+</button>
+                </p>
+                <p class="basket_form_para">{% trans 'Price' %}: ${{ item.price }}</p>
+                <p class="basket_form_para">{% trans 'Total price' %}: $<span class="total-price">{{ item.total_price }}</span></p>
+                <button class="btn remove__btn" type="submit" name="action" value="remove">{% trans 'Remove' %}</button>
+            </form>
+            <br>
+        {% endfor %}
+        <p>{% trans 'Total items in the basket' %}: {{ basket|length }}</p>
+        <p>{% trans 'Total price of the items in the basket' %}: $<span id="total-price">{{ basket.total_sum }}</span></p>
+        <br>
+        {% if warning_message %}
+            <h3 id="warning_message">{{ warning_message }}</h3>
+            <p class="basket__balance__btn">
+                <a class="btn" href="{% url 'app_users:add_balance' pk=profile.pk %}">
+                    {% trans 'Top up the balance' %}
+                </a>
+            </p>
+        {% else %}
+            <button class="add_balance_btn btn" id="order_btn" hx-get="{% url 'app_goods:order_create' %}" hx-target="#form_container" onclick="hideButton()">
+                {% trans 'Enter your address to order the items from the basket' %}
+            </button>
+
+            <div id="form_container"></div>
+
+        {% endif %}
+
+    {% else %}
+        <p>{% trans 'No added items yet' %}</p>
+    {% endif %}
+    <br>
+    <p>
+        <a class="core_link_item" href="{% url 'app_goods:shop_list' %}">{% trans 'Go to shops' %}</a>
+    </p>
+    <br>
+    <br>
+    <br>
+
+{% endblock %}

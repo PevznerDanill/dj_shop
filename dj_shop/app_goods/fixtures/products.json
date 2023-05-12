@@ -1,0 +1,252 @@
+[
+  {
+    "model": "app_goods.product",
+    "pk": 1,
+    "fields": {
+      "price": "957.00",
+      "title": "Computer series 1",
+      "description": null,
+      "image": "images/Computer_series_1.webp"
+    }
+  },
+  {
+    "model": "app_goods.product",
+    "pk": 2,
+    "fields": {
+      "price": "951.00",
+      "title": "Computer series 2",
+      "description": null,
+      "image": "images/Computer_series_2.webp"
+    }
+  },
+  {
+    "model": "app_goods.product",
+    "pk": 3,
+    "fields": {
+      "price": "514.00",
+      "title": "Computer series 3",
+      "description": null,
+      "image": "images/Computer_series_3.webp"
+    }
+  },
+  {
+    "model": "app_goods.product",
+    "pk": 4,
+    "fields": {
+      "price": "937.00",
+      "title": "Computer series 4",
+      "description": null,
+      "image": "images/Computer_series_4.webp"
+    }
+  },
+  {
+    "model": "app_goods.product",
+    "pk": 5,
+    "fields": {
+      "price": "794.00",
+      "title": "Computer series 5",
+      "description": null,
+      "image": "images/Computer_series_5.webp"
+    }
+  },
+  {
+    "model": "app_goods.product",
+    "pk": 6,
+    "fields": {
+      "price": "724.00",
+      "title": "Smartphone series 1",
+      "description": null,
+      "image": "images/Smartphone_series_1.webp"
+    }
+  },
+  {
+    "model": "app_goods.product",
+    "pk": 7,
+    "fields": {
+      "price": "428.00",
+      "title": "Smartphone series 2",
+      "description": null,
+      "image": "images/Smartphone_series_2.webp"
+    }
+  },
+  {
+    "model": "app_goods.product",
+    "pk": 8,
+    "fields": {
+      "price": "186.00",
+      "title": "Smartphone series 3",
+      "description": null,
+      "image": "images/Smartphone_series_3.webp"
+    }
+  },
+  {
+    "model": "app_goods.product",
+    "pk": 9,
+    "fields": {
+      "price": "204.00",
+      "title": "Smartphone series 4",
+      "description": null,
+      "image": "images/Smartphone_series_4.webp"
+    }
+  },
+  {
+    "model": "app_goods.product",
+    "pk": 10,
+    "fields": {
+      "price": "944.00",
+      "title": "Smartphone series 5",
+      "description": null,
+      "image": "images/Smartphone_series_5.webp"
+    }
+  },
+  {
+    "model": "app_goods.product",
+    "pk": 11,
+    "fields": {
+      "price": "897.00",
+      "title": "Monitor series 1",
+      "description": null,
+      "image": "images/Monitor_series_1.webp"
+    }
+  },
+  {
+    "model": "app_goods.product",
+    "pk": 12,
+    "fields": {
+      "price": "325.00",
+      "title": "Monitor series 2",
+      "description": null,
+      "image": "images/Monitor_series_2.webp"
+    }
+  },
+  {
+    "model": "app_goods.product",
+    "pk": 13,
+    "fields": {
+      "price": "578.00",
+      "title": "Monitor series 3",
+      "description": null,
+      "image": "images/Monitor_series_3.webp"
+    }
+  },
+  {
+    "model": "app_goods.product",
+    "pk": 14,
+    "fields": {
+      "price": "331.00",
+      "title": "Monitor series 4",
+      "description": null,
+      "image": "images/Monitor_series_4.webp"
+    }
+  },
+  {
+    "model": "app_goods.product",
+    "pk": 15,
+    "fields": {
+      "price": "533.00",
+      "title": "Monitor series 5",
+      "description": null,
+      "image": "images/Monitor_series_5.webp"
+    }
+  },
+  {
+    "model": "app_goods.product",
+    "pk": 16,
+    "fields": {
+      "price": "292.00",
+      "title": "Vacuum series 1",
+      "description": null,
+      "image": "images/Vacuum_series_1.webp"
+    }
+  },
+  {
+    "model": "app_goods.product",
+    "pk": 17,
+    "fields": {
+      "price": "312.00",
+      "title": "Vacuum series 2",
+      "description": null,
+      "image": "images/Vacuum_series_2.webp"
+    }
+  },
+  {
+    "model": "app_goods.product",
+    "pk": 18,
+    "fields": {
+      "price": "739.00",
+      "title": "Vacuum series 3",
+      "description": null,
+      "image": "images/Vacuum_series_3.webp"
+    }
+  },
+  {
+    "model": "app_goods.product",
+    "pk": 19,
+    "fields": {
+      "price": "896.00",
+      "title": "Vacuum series 4",
+      "description": null,
+      "image": "images/Vacuum_series_4.webp"
+    }
+  },
+  {
+    "model": "app_goods.product",
+    "pk": 20,
+    "fields": {
+      "price": "556.00",
+      "title": "Vacuum series 5",
+      "description": null,
+      "image": "images/Vacuum_series_5.webp"
+    }
+  },
+  {
+    "model": "app_goods.product",
+    "pk": 21,
+    "fields": {
+      "price": "962.00",
+      "title": "Laptop series 1",
+      "description": null,
+      "image": "images/Laptop_series_1.webp"
+    }
+  },
+  {
+    "model": "app_goods.product",
+    "pk": 22,
+    "fields": {
+      "price": "782.00",
+      "title": "Laptop series 2",
+      "description": null,
+      "image": "images/Laptop_series_2.webp"
+    }
+  },
+  {
+    "model": "app_goods.product",
+    "pk": 23,
+    "fields": {
+      "price": "263.00",
+      "title": "Laptop series 3",
+      "description": null,
+      "image": "images/Laptop_series_3.webp"
+    }
+  },
+  {
+    "model": "app_goods.product",
+    "pk": 24,
+    "fields": {
+      "price": "515.00",
+      "title": "Laptop series 4",
+      "description": null,
+      "image": "images/Laptop_series_4.webp"
+    }
+  },
+  {
+    "model": "app_goods.product",
+    "pk": 25,
+    "fields": {
+      "price": "281.00",
+      "title": "Laptop series 5",
+      "description": null,
+      "image": "images/Laptop_series_5.webp"
+    }
+  }
+]

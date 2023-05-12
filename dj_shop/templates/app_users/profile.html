@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+    {% trans 'Profile' %} {{ profile.pk }}
+{% endblock %}
+
+
+{% block body %}
+
+        <h1>{% firstof profile.user.first_name profile.user.username %}</h1>
+        <div>
+            <h2>{% trans 'Personal information' %}</h2>
+            <ul>
+                <li>
+                    {% trans 'Username' %}: {{ profile.user.username }}
+                </li>
+                <li>
+                    {% trans 'First name' %}: {{ profile.user.first_name }}
+                </li>
+                <li>
+                    {% trans 'Last name' %}: {{ profile.user.last_name }}
+                </li>
+                <li>
+                    {% trans 'Email' %}: {{ profile.user.email }}
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h2>{% trans 'Account information' %}</h2>
+            <ul>
+                <li>
+                    {% trans 'Balance' %}: ${{ profile.balance }}<br>
+                    <a href="{% url 'app_users:add_balance' pk=profile.pk %}">
+                        {% trans 'Top up your balance' %}
+                    </a>
+                </li>
+                <li>
+                    {% trans 'Status' %}: {{ profile.status_str }}
+                </li>
+                <li>
+                    <a href="{% url 'app_goods:order_list' pk=profile.pk %}">
+                        {% trans 'Check my orders' %}
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+
+{% endblock %}

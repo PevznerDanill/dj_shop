@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+    {% trans 'Main page' %}
+{% endblock %}
+
+{% block body %}
+    <a href="{% url 'app_goods:shop_list' %}">
+        <h1 class="main_title core_link_item">{% trans 'Find your shop' %}</h1>
+    </a>
+
+{% endblock %}

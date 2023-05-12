@@ -1,0 +1,36 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans 'Report' %}</title>
+</head>
+<body>
+    <h1>{% trans 'Report' %}</h1>
+    <div>
+        <h2>{% trans 'Searched period' %}</h2>
+        <form method="post">
+            {% csrf_token %}
+            <label for="start_date">{% trans 'Start Date' %}:</label>
+            <input type="date" id="start_date" name="start_date">
+            <label for="end_date">{% trans 'End Date' %}:</label>
+            <input type="date" id="end_date" name="end_date">
+            <button type="submit">{% trans 'Generate Report' %}</button>
+        </form>
+        <h2>{% trans 'Top sold products' %} ({{ total_sold }})</h2>
+        <ol>
+            {% for top_item in top_items %}
+
+                <li>
+                    <p>{% trans 'Product category' %}: {{ top_item }}</p>
+                    <p>{% trans 'Products sold' %}: {{ top_item.ordered_quantity }}</p>
+                    <p>{% trans 'Product id' %}: {{ top_item.pk }}</p>
+                </li>
+
+            {% endfor %}
+
+        </ol>
+    </div>
+
+</body>
+</html>

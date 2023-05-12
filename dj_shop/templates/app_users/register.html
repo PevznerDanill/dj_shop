@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+    {% trans 'Sign up' %}
+{% endblock %}
+
+{% block body %}
+    <h1>{% trans 'Sign up' %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% trans 'Sign me up' %}</button>
+    </form>
+{% endblock %}

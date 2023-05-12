@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+    {{ profile.status_str }}
+{% endblock %}
+
+
+{% block body %}
+    <h1 class="status_title">{{ profile.status_str }}</h1>
+
+    <p class="status_para">
+        {% trans 'Discount available' %}: {{ profile.discount }}%
+    </p>
+
+    <p class="status_para">
+        {% trans 'This is your current status' %}.
+    </p>
+    <p class="status_para">
+        {% trans 'If you make at least 5 orders, your status will be upgrade to "Advanced customer".' %}
+        {% trans 'Once reached this status, you will have a one use discount of 5%.' %}
+        {% trans 'It can be earned again with 5 orders more.' %}
+    </p>
+    <p class="status_para">{% trans 'If you make at least 10 orders, your status will be upgraded to "Loyal buyer".' %}
+        {% trans 'Once reached this status, you will have a one use discount of 10%.' %}
+        {% trans 'It can be earned again with 10 orders more.' %}
+    </p>
+
+{% endblock %}

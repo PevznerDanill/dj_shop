@@ -1,0 +1,7 @@
+{% load i18n %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button class="btn add_balance_btn" type="submit">{% trans 'Create new order' %}</button>
+</form>
